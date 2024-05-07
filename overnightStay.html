@@ -49,6 +49,7 @@
             id="email"
             name="email"
             placeholder="name@example.com"
+            required
           />
           <!-- First and last name -->
           <div class="input-group">
@@ -58,12 +59,14 @@
               aria-label="First name"
               name="fname"
               class="form-control"
+              required
             />
             <input
               type="text"
               aria-label="Last name"
               name="lname"
               class="form-control"
+              required
             />
           </div>
           <div>
@@ -73,7 +76,7 @@
               
                 <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Number of nights</span>
-                <input type="number"name="num_of_nights" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" min="1" max="28">
+                <input type="number"name="num_of_nights" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" min="1" max="28" required>
                 </div>
           </div>
           <!-- adults and kids -->

@@ -11,6 +11,7 @@ queen : max 2 ppl jun-aug 250, rest of year :150(all per night)
 form.addEventListener("submit", result);
 function result(e) {
   e.preventDefault();
+  // fixed
   const date_range_from = new Date(
     form.date_range_from.value + "T00:00:00"
   ).toLocaleString();
