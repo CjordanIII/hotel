@@ -42,6 +42,7 @@ function result(e) {
   } else {
     result.innerHTML = `
   <div class="alert alert-success">
+  <h4> Base Price $${roomRate.price}</h4>
     <h4>Your room rate is: $${roomRate.roomRate}</h4>
     ${
       roomRate.discount
@@ -61,15 +62,17 @@ function getRoomRate(checkinDate, numOfnights, roomType, discount) {
 
   let roomRate;
   let maxPeople;
-
+  let baseRateOfroom;
   let moneyOff;
+  let price;
 
   //  special month
   if (numOfnights >= 1 && month >= 6 && month <= 8) {
     switch (roomType) {
       case "queen":
         roomRate = 250 * numOfnights;
-
+        price = roomRate;
+        break;
         if (discount >= 0) {
           moneyOff = roomRate * discount;
           roomRate = roomRate - moneyOff;
@@ -80,6 +83,7 @@ function getRoomRate(checkinDate, numOfnights, roomType, discount) {
         break;
       case "king":
         roomRate = 250 * numOfnights;
+        price = roomRate;
         if (discount >= 0) {
           moneyOff = roomRate * discount;
           roomRate = roomRate - moneyOff;
@@ -89,6 +93,7 @@ function getRoomRate(checkinDate, numOfnights, roomType, discount) {
         break;
       case "two_bed_room":
         roomRate = 350 * numOfnights;
+        price = roomRate;
         if (discount >= 0) {
           moneyOff = roomRate * discount;
           roomRate = roomRate - moneyOff;
@@ -104,7 +109,7 @@ function getRoomRate(checkinDate, numOfnights, roomType, discount) {
       switch (roomType) {
         case "queen":
           roomRate = 150 * numOfnights;
-
+          price = roomRate;
           if (discount >= 0) {
             moneyOff = roomRate * discount;
             roomRate = roomRate - moneyOff;
@@ -115,6 +120,7 @@ function getRoomRate(checkinDate, numOfnights, roomType, discount) {
           break;
         case "king":
           roomRate = 150 * numOfnights;
+          price = roomRate;
           if (discount >= 0) {
             moneyOff = roomRate * discount;
             roomRate = roomRate - moneyOff;
@@ -124,6 +130,7 @@ function getRoomRate(checkinDate, numOfnights, roomType, discount) {
           break;
         case "two_bed_room":
           roomRate = 210 * numOfnights;
+          price = roomRate;
           if (discount >= 0) {
             moneyOff = roomRate * discount;
             roomRate = roomRate - moneyOff;
@@ -148,6 +155,7 @@ function getRoomRate(checkinDate, numOfnights, roomType, discount) {
     maxPeople: maxPpl,
     maxAmountOfPeople: maxPeople,
     roomRate: beforeTaxes,
+    price: price,
     discount: discount * 100,
     moneyOff: moneyOff.toString(),
     tax: roomRate,
